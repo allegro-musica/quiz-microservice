@@ -1,0 +1,33 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Quiz.API";
+
+package quiz;
+
+// The quizer service definition.
+service Quizer {
+  rpc CreateGame (QuizCreateRequest) returns (QuizCreatedResponse);
+}
+
+// The request message containing the quiz specification
+message QuizCreateRequest {
+  string title = 1;
+  QuizData quiz = 2;
+}
+
+// The response message containing id of the game
+message QuizCreatedResponse {
+  uint64 id = 1;
+  QuizData quiz = 2;
+}
+
+message QuizData {
+	string title = 1;
+	string description = 2;
+	string imageUrl = 3;
+	repeated QuestionData questions = 4;
+}
+
+message QuestionData {
+	int32 timeout = 1;
+}
