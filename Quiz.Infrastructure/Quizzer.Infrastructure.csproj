@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.1.2" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.2" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Quiz.Domain\Quizzer.Domain.csproj" />
   </ItemGroup>
 
