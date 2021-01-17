@@ -11,5 +11,6 @@ namespace Quizzer.Domain.Entities
         public ulong Id { get; init; }
         public Quiz Quiz { get; init; }
         public DateTime? Started { get; init; }
+        public int CurrentQuestion { get; set; }
     }
 }

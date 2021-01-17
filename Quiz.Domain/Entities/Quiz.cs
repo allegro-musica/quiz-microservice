@@ -8,5 +8,6 @@ namespace Quizzer.Domain.Entities
         public string Description { get; init; }
         public string ImageUrl { get; init; }
         public IList<Question> Questions { get; init; }
+        public IList<string> Users { get; init; }
     }
 }
