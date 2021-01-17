@@ -1,12 +1,37 @@
 ﻿syntax = "proto3";
 
 option csharp_namespace = "Quiz.API";
-
+import "google/protobuf/empty.proto";
 package quiz;
 
 // The quizer service definition.
 service Quizer {
   rpc CreateGame (QuizCreateRequest) returns (QuizCreatedResponse);
+  rpc QuizExist(QuizExistRequest) returns (QuizExistResponse);
+  rpc StartGame(QuizStartRequest) returns (google.protobuf.Empty);
+  rpc JoinGame(JoinGameRequest) returns (google.protobuf.Empty);
+  rpc NextQuestion(NextQuestionRequest) returns (google.protobuf.Empty);
+}
+
+message NextQuestionRequest {
+	uint64 id = 1;
+}
+
+message JoinGameRequest {
+	uint64 id = 1;
+	string user = 2;
+}
+
+message QuizStartRequest {
+	uint64 id = 1;
+}
+
+message QuizExistResponse {
+	QuizData quiz = 1;
+}	
+
+message QuizExistRequest {
+	uint64 id = 1;
 }
 
 // The request message containing the quiz specification
@@ -30,4 +55,5 @@ message QuizData {
 
 message QuestionData {
 	int32 timeout = 1;
+	string title = 2;
 }
